@@ -15,7 +15,8 @@ export class Teachers extends BaseEntity {
   @Column()
   specialization : string;
 
-  @ManyToMany(type => Subject , subject => subject.id , { cascade : true, eager : true })
+  @ManyToMany(type => Subject , subject => subject.teachers)
   @JoinTable()
   teaches : Subject[]
+
 }

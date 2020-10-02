@@ -17,10 +17,10 @@ export class TeachersResolver {
     return this.teacherService.createTeacher(createTeacherInput);
   }
 
-  // @Query(returns => [TeachersType])
-  // async Teachers() : Promise<TeachersType[]> {
-  //   return this.teacherService.findAllTeachers();
-  // }
+  @Query(returns => [TeachersType])
+  async Teachers() : Promise<TeachersType[]> {
+    return this.teacherService.findAllTeachers();
+  }
 
   @ResolveField("teaches",returns => [SubjectsType])
   async getSubjectsForTeacher(@Parent() teacher : TeachersType) : Promise<SubjectsType[]>{

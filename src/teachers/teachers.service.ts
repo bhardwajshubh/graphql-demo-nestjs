@@ -19,9 +19,9 @@ export class TeachersService {
     return this.teachersRepository.createTeacher(createTeacherInput)
   }
 
-  // async findAllTeachers() : Promise<TeachersType[]> {
-  //   return this.teachersRepository.find();
-  // }
+  async findAllTeachers() : Promise<TeachersType[]> {
+    return this.teachersRepository.find();
+  }
 
 
   async getSubjects(@Parent() teacher : TeachersType) : Promise<SubjectsType[]>{
