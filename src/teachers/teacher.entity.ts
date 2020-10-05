@@ -1,5 +1,5 @@
-import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
-import { Subject } from '../subjects/subjects.entity';
+import { Entity, BaseEntity, PrimaryGeneratedColumn, Column} from 'typeorm';
+
 
 @Entity('Teacher')
 export class Teachers extends BaseEntity {
@@ -15,8 +15,5 @@ export class Teachers extends BaseEntity {
   @Column()
   specialization : string;
 
-  @ManyToMany(type => Subject , subject => subject.teachers)
-  @JoinTable()
-  teaches : Subject[]
 
 }

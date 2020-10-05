@@ -12,6 +12,4 @@ export class CreateTeacherInput {
   @Field()
   specialization : string
 
-  @Field({nullable : true})
-  teaches? : number[]
 }

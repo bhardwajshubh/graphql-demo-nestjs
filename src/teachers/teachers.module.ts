@@ -3,13 +3,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TeachersService } from './teachers.service';
 import { TeachersResolver } from './teachers.resolver';
 import { TeacherRepository } from './teachers.repository';
-import { SubjectsRepository } from '../subjects/subjects.repository';
+
 
 @Module({
   imports : [
   TypeOrmModule.forFeature([TeacherRepository]),
 
   ],
-  providers: [TeachersService, TeachersResolver, SubjectsRepository]
+  providers: [TeachersService, TeachersResolver]
 })
 export class TeachersModule {}

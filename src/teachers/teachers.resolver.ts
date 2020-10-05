@@ -1,8 +1,8 @@
-import { Args, Resolver, Query, Mutation, ResolveField, Parent, ID, ResolveProperty } from '@nestjs/graphql';
+import { Args, Resolver, Query, Mutation} from '@nestjs/graphql';
 import { TeachersType } from './teachers.type';
 import { TeachersService } from './teachers.service';
 import { CreateTeacherInput } from './create-teacher.input';
-import { SubjectsType } from '../subjects/subjects.type';
+
 
 @Resolver(of => TeachersType)
 export class TeachersResolver {
@@ -22,10 +22,6 @@ export class TeachersResolver {
     return this.teacherService.findAllTeachers();
   }
 
-  @ResolveField("teaches",returns => [SubjectsType])
-  async getSubjectsForTeacher(@Parent() teacher : TeachersType) : Promise<SubjectsType[]>{
-    return this.teacherService.getSubjects(teacher);
-  }
 
 
 }

@@ -1,5 +1,5 @@
 import { Field, ID,  ObjectType , Int} from '@nestjs/graphql';
-import { SubjectsType } from '../subjects/subjects.type';
+
 
 @ObjectType('Teacher')
 export class TeachersType {
@@ -15,6 +15,4 @@ export class TeachersType {
   @Field()
   specialization : string
 
-  @Field(type => [SubjectsType], {nullable : 'itemsAndList'})
-  teaches? : SubjectsType[]
 }
