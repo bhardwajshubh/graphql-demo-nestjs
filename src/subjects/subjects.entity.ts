@@ -1,5 +1,4 @@
-import { type } from 'os';
-import { TeachersType } from 'src/teachers/teachers.type';
+
 import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToMany } from 'typeorm';
 import { Teachers } from '../teachers/teacher.entity';
 

@@ -1,4 +1,4 @@
-import {  InputType, Field} from '@nestjs/graphql';
+import {  InputType, Field, Int} from '@nestjs/graphql';
 
 
 @InputType()
@@ -12,6 +12,6 @@ export class CreateTeacherInput {
   @Field()
   specialization : string
 
-  @Field({nullable : true})
-  teaches? : number[]
+  @Field(() => [Int],{nullable : true})
+  teaches? : Array<number> 
 }

@@ -15,6 +15,6 @@ export class TeachersType {
   @Field()
   specialization : string
 
-  @Field(type => [SubjectsType], {nullable : 'itemsAndList'})
-  teaches? : SubjectsType[]
+  @Field(type => [SubjectsType])
+  teaches : SubjectsType[]
 }

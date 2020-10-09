@@ -10,20 +10,20 @@ export class TeachersResolver {
   }
 
 
-  @Mutation(returns => TeachersType)
+  @Mutation(() => TeachersType)
   async createTeacher(
     @Args('createTeacherInput') createTeacherInput : CreateTeacherInput
   ) : Promise<TeachersType> {
     return this.teacherService.createTeacher(createTeacherInput);
   }
 
-  @Query(returns => [TeachersType])
+  @Query(() => [TeachersType])
   async Teachers() : Promise<TeachersType[]> {
     return this.teacherService.findAllTeachers();
   }
 
-  @ResolveField("teaches",returns => [SubjectsType])
-  async getSubjectsForTeacher(@Parent() teacher : TeachersType) : Promise<SubjectsType[]>{
+  @ResolveField("teaches" , () => [SubjectsType])
+  async teaches(@Parent() teacher : TeachersType) : Promise<any>{
     return this.teacherService.getSubjects(teacher);
   }
 

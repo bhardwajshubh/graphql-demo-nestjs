@@ -1,18 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { TeachersType } from './teachers.type';
-import { Repository } from 'typeorm';
-import {  Teachers } from './teacher.entity';
-import { InjectRepository } from '@nestjs/typeorm';
 import { TeacherRepository } from './teachers.repository';
 import { CreateTeacherInput } from './create-teacher.input';
-import { SubjectsRepository } from '../subjects/subjects.repository';
-import { SubjectsService } from '../subjects/subjects.service';
 import { SubjectsType } from '../subjects/subjects.type';
-import { Parent, ResolveField } from '@nestjs/graphql';
+import { Teachers } from './teacher.entity';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class TeachersService {
-  constructor(private teachersRepository : TeacherRepository, private subjectRepository : SubjectsRepository) {
+  constructor(private teachersRepository : TeacherRepository) {
   }
 
   async createTeacher(createTeacherInput : CreateTeacherInput) : Promise<TeachersType> {
@@ -23,9 +19,18 @@ export class TeachersService {
     return this.teachersRepository.find();
   }
 
+  async getSubjects(teacher : TeachersType) : Promise<any>{
+    const x = await this.teachersRepository.find({where : {"id" : teacher.id} , relations : ['teaches']})
+      // .createQueryBuilder('Teacher')
+      // .where("Teacher.id = :id" , {"id" : teacher.id})
+      // .select(['subject.id'])
+      // .leftJoin('Teacher.teaches', 'subject')
+      // .getMany()
+      // // .getQuery()
+      // // const x = await  
 
-  async getSubjects(@Parent() teacher : TeachersType) : Promise<SubjectsType[]>{
-    return this.teachersRepository.find({where : {id : teacher.id}, relations : ["teaches"]})
+    console.log(x)
+    return x;
   }
 }
 
