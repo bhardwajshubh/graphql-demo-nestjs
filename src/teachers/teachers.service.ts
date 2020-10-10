@@ -19,13 +19,13 @@ export class TeachersService {
     return this.teachersRepository.find();
   }
 
-  async getSubjects(teacher : TeachersType) : Promise<any>{
-    const x = await this.teachersRepository.find({where : {"id" : teacher.id} , relations : ['teaches']})
-      // .createQueryBuilder('Teacher')
+  async getSubjects(teacher : TeachersType) : Promise<SubjectsType[]>{
+    const x = await this.teachersRepository
+      .createQueryBuilder('Teacher')
       // .where("Teacher.id = :id" , {"id" : teacher.id})
-      // .select(['subject.id'])
-      // .leftJoin('Teacher.teaches', 'subject')
-      // .getMany()
+      .select(['subject'])
+      .leftJoin('Teacher.teaches', 'subject')
+      .getMany()
       // // .getQuery()
       // // const x = await  
 
