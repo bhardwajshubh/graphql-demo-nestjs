@@ -13,8 +13,8 @@ export class SubjectsService {
   }
 
   async createSubject(createSubjectInput : CreateSubjectInput) : Promise<SubjectsType>{
-    const {name} = createSubjectInput;
-    const subject = this.subjectRepository.create({name});
+    const {subjectName} = createSubjectInput;
+    const subject = this.subjectRepository.create({subjectName});
     return subject.save();
   }
 }

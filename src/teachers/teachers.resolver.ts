@@ -23,7 +23,7 @@ export class TeachersResolver {
   }
 
   @ResolveField("teaches" , () => [SubjectsType])
-  async teaches(@Parent() teacher : TeachersType) : Promise<SubjectsType[]>{
+  async teaches(@Parent() teacher : TeachersType) : Promise<any>{
     return this.teacherService.getSubjects(teacher);
   }
 

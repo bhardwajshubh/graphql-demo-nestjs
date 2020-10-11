@@ -4,13 +4,13 @@ import {  InputType, Field, Int} from '@nestjs/graphql';
 @InputType()
 export class CreateTeacherInput {
   @Field()
-  name : string;
+  teacherName : string;
 
   @Field()
-  age : number
+  teacherAge : number
 
   @Field()
-  specialization : string
+  teacherSpecialization : string
 
   @Field(() => [Int],{nullable : true})
   teaches? : Array<number> 

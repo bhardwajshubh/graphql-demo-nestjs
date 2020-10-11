@@ -6,10 +6,10 @@ import { Teachers } from '../teachers/teacher.entity';
 @Entity()
 export class Subject extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id : number
+  subjectId : number
 
   @Column()
-  name : string
+  subjectName : string
 
   @ManyToMany(type => Teachers , teacher => teacher.teaches , {cascade : true})
   teachers : Teachers[]

@@ -4,8 +4,8 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 @ObjectType("subject")
 export class SubjectsType{
   @Field(type => ID)
-  id : number
+  subjectId : number
 
   @Field()
-  name : string
+  subjectName : string
 }

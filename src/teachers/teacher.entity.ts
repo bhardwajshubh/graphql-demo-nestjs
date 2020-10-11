@@ -4,21 +4,18 @@ import { Subject } from '../subjects/subjects.entity';
 @Entity('Teacher')
 export class Teachers extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id : number;
+  teacherId : number;
 
   @Column()
-  name : string;
+  teacherName : string;
 
   @Column()
-  age : number;
+  teacherAge : number;
 
   @Column()
-  specialization : string;
+  teacherSpecialization : string;
 
   @ManyToMany(type => Subject , subject => subject.teachers )
   @JoinTable()
   teaches : Subject[]
-
-
-  
 }

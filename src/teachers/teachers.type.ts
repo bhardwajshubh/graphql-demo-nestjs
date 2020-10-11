@@ -4,16 +4,16 @@ import { SubjectsType } from '../subjects/subjects.type';
 @ObjectType('Teacher')
 export class TeachersType {
   @Field(type => ID)
-  id : number
+  teacherId : number
 
   @Field()
-  name : string
+  teacherName : string
 
   @Field(type => Int)
-  age : number
+  teacherAge : number
 
   @Field()
-  specialization : string
+  teacherSpecialization : string
 
   @Field(type => [SubjectsType])
   teaches : SubjectsType[]
